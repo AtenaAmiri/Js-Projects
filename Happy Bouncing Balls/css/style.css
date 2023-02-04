@@ -1,5 +1,57 @@
 body {
   margin: 0px;
-  background-color: rgb(56, 220, 250);
   overflow: hidden;
+}
+
+body {
+  background: linear-gradient(
+    270deg,
+    #f9be05,
+    #3ae129,
+    #dd389c,
+    #66244c,
+    #36eae4,
+    #8385db,
+    #f1081a,
+    #8e8687
+  );
+  background-size: 1600% 1600%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

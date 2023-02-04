@@ -212,7 +212,6 @@ function randomWord() {
   let ranObj = wordList[Math.floor(Math.random() * length)];
   word = ranObj.word; // getting word if random object
   maxGuesses = 10; // by default maxGuesses value is 8
-  console.log(word);
   //show the hint of the word
   hint.innerHTML = ranObj.hint;
   // guessLeft.innerHTML = maxGuesses;
@@ -236,7 +235,6 @@ function initGame(e) {
     !correct.includes(key) &&
     key !== ""
   ) {
-    console.log(key);
     if (word.includes(key)) {
       //if user letter found in the word
       for (let i = 0; i < word.length; i++) {
