@@ -1,199 +1,199 @@
 let wordList = [
   {
     word: "python",
-    hint: "programming language",
+    hint: "Programming language",
   },
   {
     word: "guitar",
-    hint: "a musical instrument",
+    hint: "A musical instrument",
   },
   {
     word: "aim",
-    hint: "a purpose or intention",
+    hint: "A purpose or intention",
   },
   {
     word: "venus",
-    hint: "planet of our solar system",
+    hint: "Planet of our solar system",
   },
   {
     word: "gold",
-    hint: "a yellow precious metal",
+    hint: "A yellow precious metal",
   },
   {
     word: "ebay",
-    hint: "online shopping site",
+    hint: "Online shopping site",
   },
   {
     word: "golang",
-    hint: "programming language",
+    hint: "Programming language",
   },
   {
     word: "coding",
-    hint: "related to programming",
+    hint: "Related to programming",
   },
   {
     word: "matrix",
-    hint: "science fiction movie",
+    hint: "Science fiction movie",
   },
   {
     word: "bugs",
-    hint: "related to programming",
+    hint: "Related to programming",
   },
   {
     word: "avatar",
-    hint: "epic science fiction film",
+    hint: "Epic science fiction film",
   },
   {
     word: "gif",
-    hint: "a file format for image",
+    hint: "A file format for image",
   },
   {
     word: "mental",
-    hint: "related to the mind",
+    hint: "Related to the mind",
   },
   {
     word: "map",
-    hint: "diagram represent of an area",
+    hint: "Diagram represent of an area",
   },
   {
     word: "island",
-    hint: "land surrounded by water",
+    hint: "Land surrounded by water",
   },
   {
     word: "hockey",
-    hint: "a famous outdoor game",
+    hint: "A famous outdoor game",
   },
   {
     word: "chess",
-    hint: "related to a indoor game",
+    hint: "Related to a indoor game",
   },
   {
     word: "viber",
-    hint: "a social media app",
+    hint: "A social media app",
   },
   {
     word: "github",
-    hint: "code hosting platform",
+    hint: "Code hosting platform",
   },
   {
     word: "png",
-    hint: "a image file format",
+    hint: "A image file format",
   },
   {
     word: "silver",
-    hint: "precious greyish-white metal",
+    hint: "Precious greyish-white metal",
   },
   {
     word: "mobile",
-    hint: "an electronic device",
+    hint: "An electronic device",
   },
   {
     word: "gpu",
-    hint: "computer component",
+    hint: "Computer component",
   },
   {
     word: "java",
-    hint: "programming language",
+    hint: "Programming language",
   },
   {
     word: "google",
-    hint: "famous search engine",
+    hint: "Famous search engine",
   },
   {
     word: "venice",
-    hint: "famous city of waters",
+    hint: "Famous city of waters",
   },
   {
     word: "excel",
-    hint: "microsoft product for windows",
+    hint: "Microsoft product for windows",
   },
   {
     word: "mysql",
-    hint: "a relational database system",
+    hint: "A relational database system",
   },
   {
     word: "nepal",
-    hint: "developing country name",
+    hint: "Developing country name",
   },
   {
     word: "flute",
-    hint: "a musical instrument",
+    hint: "A musical instrument",
   },
   {
     word: "crypto",
-    hint: "related to cryptocurrency",
+    hint: "Related to cryptocurrency",
   },
   {
     word: "tesla",
-    hint: "unit of magnetic flux density",
+    hint: "Unit of magnetic flux density",
   },
   {
     word: "mars",
-    hint: "planet of our solar system",
+    hint: "Planet of our solar system",
   },
   {
     word: "proxy",
-    hint: "related to server application",
+    hint: "Related to server application",
   },
   {
     word: "email",
-    hint: "related to exchanging message",
+    hint: "Related to exchanging message",
   },
   {
     word: "html",
-    hint: "markup language for the web",
+    hint: "Markup language for the web",
   },
   {
     word: "air",
-    hint: "related to a gas",
+    hint: "Related to a gas",
   },
   {
     word: "idea",
-    hint: "a thought or suggestion",
+    hint: "A thought or suggestion",
   },
   {
     word: "server",
-    hint: "related to computer or system",
+    hint: "Related to computer or system",
   },
   {
     word: "svg",
-    hint: "a vector image format",
+    hint: "A vector image format",
   },
   {
     word: "jpeg",
-    hint: "a image file format",
+    hint: "A image file format",
   },
   {
     word: "search",
-    hint: "act to find something",
+    hint: "Act to find something",
   },
   {
     word: "key",
-    hint: "small piece of metal",
+    hint: "Small piece of metal",
   },
   {
     word: "egypt",
-    hint: "a country name",
+    hint: "A country name",
   },
   {
     word: "joker",
-    hint: "psychological thriller film",
+    hint: "Psychological thriller film",
   },
   {
     word: "dubai",
-    hint: "developed country name",
+    hint: "Developed country name",
   },
   {
     word: "photo",
-    hint: "representation of person or scene",
+    hint: "Representation of person or scene",
   },
   {
     word: "nile",
-    hint: "largest river in the world",
+    hint: "Largest river in the world",
   },
   {
     word: "rain",
-    hint: "related to a water",
+    hint: "Related to a water",
   },
 ];
 const inputs = document.querySelector(".inputs");
@@ -269,6 +269,8 @@ function initGame(e) {
   }, 1000);
 }
 //get random word on button click
-button.addEventListener("click", randomWord);
+button.addEventListener("click", () => {
+  window.location.reload();
+});
 document.addEventListener("keydown", () => typingInput.focus());
 typingInput.addEventListener("input", initGame);
