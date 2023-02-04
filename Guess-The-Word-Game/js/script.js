@@ -251,11 +251,13 @@ function initGame(e) {
       incorrect.push(` ${key} `);
     }
   }
+
   guessLeft.innerHTML = maxGuesses;
   //show wrong letter
   wrongLetter.innerText = incorrect;
   //empty the input tag once entered any key
   typingInput.value = "";
+
   setTimeout(() => {
     if (correct.length === word.length) {
       alert(`Congrats 😍 ! You found the word ${word}.`);
@@ -268,6 +270,7 @@ function initGame(e) {
     }
   }, 1000);
 }
+
 //get random word on button click
 button.addEventListener("click", () => {
   window.location.reload();
