@@ -34,12 +34,25 @@ function switchTheme(event) {
   console.log(event.target.checked);
   if (event.target.checked) {
     document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("them", "dark");
     darkMode();
   } else {
     document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("them", "light");
+
     lightMode();
   }
 }
 // Event Listener
 
 toggleSwitch.addEventListener("change", switchTheme);
+
+// check Local Storage For Them
+const currentTheme = localStorage.getItem("them");
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme);
+}
+if (currentTheme === "dark") {
+  toggleSwitch.checked = true;
+  darkMode();
+}
