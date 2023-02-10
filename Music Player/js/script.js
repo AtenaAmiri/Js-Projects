@@ -13,24 +13,24 @@ const nextBtn = document.getElementById("next");
 // Music
 const songs = [
   {
-    name: "jacinto-1",
+    name: "music-1",
     displayName: "Electric Chill Machine",
-    artist: "Jacinto Design",
+    artist: "Artist",
   },
   {
-    name: "jacinto-2",
+    name: "music-2",
     displayName: "Seven Nation Army (Remix)",
-    artist: "Jacinto Design",
+    artist: "Artist",
   },
   {
-    name: "jacinto-3",
+    name: "music-3",
     displayName: "Goodnight, Disco Queen",
-    artist: "Jacinto Design",
+    artist: "Artist",
   },
   {
     name: "metric-1",
     displayName: "Front Row (Remix)",
-    artist: "Metric/Jacinto Design",
+    artist: "Metric/Artist",
   },
 ];
 //Check if Playing
@@ -56,7 +56,7 @@ playBtn.addEventListener("click", () => (isPlaying ? pauseSong() : playSong()));
 
 //Update Dom
 function loadSong(song) {
-  title.textContent = song.artist;
+  title.textContent = song.displayName;
   artist.textContent = song.artist;
   music.src = `music/${song.name}.mp3`;
   image.src = `img/${song.name}.jpg`;
