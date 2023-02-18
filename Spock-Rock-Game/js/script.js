@@ -1,3 +1,5 @@
+import { startConfetti, stopConfetti, removeConfetti } from "./confetti.js";
+
 const playerScoreEl = document.getElementById("playerScore");
 const playerChoiceEl = document.getElementById("playerChoice");
 const computerScoreEl = document.getElementById("computerScore");
@@ -30,12 +32,27 @@ let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = "";
 
-//Reset All selected Icons
+// Reset all 'selected' icons, remove confetti
 function resetSelected() {
   allGameIcons.forEach((icon) => {
     icon.classList.remove("selected");
   });
+  stopConfetti();
+  removeConfetti();
 }
+
+// Reset score & playerChoice/computerChoice
+function resetAll() {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  playerScoreEl.textContent = playerScoreNumber;
+  computerScoreEl.textContent = computerScoreNumber;
+  playerChoiceEl.textContent = "";
+  computerChoiceEl.textContent = "";
+  resultText.textContent = "";
+  resetSelected();
+}
+window.resetAll = resetAll;
 
 // Random computer choice
 function computerRandomChoice() {
@@ -53,59 +70,8 @@ function computerRandomChoice() {
   }
 }
 
-//Check result, increase  scores , update resultText
-function updateScore(playerChoice) {
-  console.log(playerChoice, computerChoice);
-  if (playerChoice === computerChoice) {
-    resultText.textContent = "It's a tie";
-  } else {
-    const choice = choices[playerChoice];
-    console.log(choice);
-  }
-}
-
-//Call function to process turn
-function checkResult(playerChoice) {
-  resetSelected();
-  computerRandomChoice();
-  displayComputerChoice();
-  updateScore(playerChoice);
-}
-
-// Passing player selection value and styling icons
-function select(playerChoice) {
-  checkResult(playerChoice);
-  // Add "selected" styling & playerChoice
-  switch (playerChoice) {
-    case "rock":
-      playerRock.classList.add("selected");
-      playerChoiceEl.textContent = " --- Rock";
-      break;
-    case "paper":
-      playerPaper.classList.add("selected");
-      playerChoiceEl.textContent = " --- Paper";
-      break;
-    case "scissors":
-      playerScissors.classList.add("selected");
-      playerChoiceEl.textContent = " --- Scissors";
-      break;
-
-    case "lizard":
-      playerLizard.classList.add("selected");
-      playerChoiceEl.textContent = " --- Lizard";
-      break;
-    case "spock":
-      playerSpock.classList.add("selected");
-      playerChoiceEl.textContent = " --- Spock";
-      break;
-    default:
-      break;
-  }
-}
-
-//An 'selected' styling & computerChoice
+// Add 'selected' styling & computerChoice
 function displayComputerChoice() {
-  // Add "selected" styling & playerChoice
   switch (computerChoice) {
     case "rock":
       computerRock.classList.add("selected");
@@ -119,7 +85,6 @@ function displayComputerChoice() {
       computerScissors.classList.add("selected");
       computerChoiceEl.textContent = " --- Scissors";
       break;
-
     case "lizard":
       computerLizard.classList.add("selected");
       computerChoiceEl.textContent = " --- Lizard";
@@ -132,3 +97,64 @@ function displayComputerChoice() {
       break;
   }
 }
+
+// Check result, increase scores, update resultText
+function updateScore(playerChoice) {
+  if (playerChoice === computerChoice) {
+    resultText.textContent = "It's a tie.";
+  } else {
+    const choice = choices[playerChoice];
+    if (choice.defeats.indexOf(computerChoice) > -1) {
+      startConfetti();
+      resultText.textContent = "You Won!";
+      playerScoreNumber++;
+      playerScoreEl.textContent = playerScoreNumber;
+    } else {
+      resultText.textContent = "You Lost!";
+      computerScoreNumber++;
+      computerScoreEl.textContent = computerScoreNumber;
+    }
+  }
+}
+
+// Call functions to process turn
+function checkResult(playerChoice) {
+  resetSelected();
+  computerRandomChoice();
+  displayComputerChoice();
+  updateScore(playerChoice);
+}
+
+// Passing player selection value and styling icons
+function select(playerChoice) {
+  checkResult(playerChoice);
+  // Add 'selected' styling & playerChoice
+  switch (playerChoice) {
+    case "rock":
+      playerRock.classList.add("selected");
+      playerChoiceEl.textContent = " --- Rock";
+      break;
+    case "paper":
+      playerPaper.classList.add("selected");
+      playerChoiceEl.textContent = " --- Paper";
+      break;
+    case "scissors":
+      playerScissors.classList.add("selected");
+      playerChoiceEl.textContent = " --- Scissors";
+      break;
+    case "lizard":
+      playerLizard.classList.add("selected");
+      playerChoiceEl.textContent = " --- Lizard";
+      break;
+    case "spock":
+      playerSpock.classList.add("selected");
+      playerChoiceEl.textContent = " --- Spock";
+      break;
+    default:
+      break;
+  }
+}
+window.select = select;
+
+// On startup, set initial values
+resetAll();
